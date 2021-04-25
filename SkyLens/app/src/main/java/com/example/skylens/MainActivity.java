@@ -56,17 +56,68 @@ public class MainActivity extends AppCompatActivity {
             Log.i("weatherJson", json);
 
             try {
+                // parsing response into JSON object
                 JSONObject jsonObject = new JSONObject(json);
+
+                //getting weather description
                 String weatherInfo = jsonObject.getString("weather");
 
                 JSONArray array = new JSONArray(weatherInfo);
 
                 JSONObject weather = array.getJSONObject(0);
 
-                Log.i("Weather", weather.getString("description"));
-
                 TextView weatherTextView = findViewById(R.id.description);
                 weatherTextView.setText(weather.getString("description"));
+
+                //getting longitude and latitude
+                JSONObject coordInfo = jsonObject.getJSONObject("coord");
+
+                TextView lonTV = findViewById(R.id.longitude);
+                lonTV.setText(coordInfo.getString("lon"));
+
+                TextView latTV = findViewById(R.id.latitude);
+                latTV.setText(coordInfo.getString("lat"));
+
+                //getting humidity and temp and pressure
+                JSONObject mainInfo = jsonObject.getJSONObject("main");
+
+                TextView humidityTV = findViewById(R.id.humidity);
+                humidityTV.setText(mainInfo.getString("humidity") + '%');
+
+                TextView pressureTV = findViewById(R.id.pressure);
+                pressureTV.setText(mainInfo.getString("pressure") + "hPA");
+
+                TextView tempTV = findViewById(R.id.temperature);
+                tempTV.setText(mainInfo.getString("temp") + "°C\n");
+
+
+                //getting wind speed
+                JSONObject windInfo = jsonObject.getJSONObject("wind");
+
+                TextView windTV = findViewById(R.id.windSpeed);
+                windTV.setText(windInfo.getString("speed") + " m/s");
+
+                //getting sunrise and sunset
+                JSONObject sysInfo = jsonObject.getJSONObject("sys");
+
+                //parsing unix time to human readable
+                java.util.Date sunsetTime = new java.util.Date((long) sysInfo.getInt("sunset") * 1000);
+                java.util.Date sunriseTime = new java.util.Date((long) sysInfo.getInt("sunrise") * 1000);
+
+                TextView sunsetTV = findViewById(R.id.sunset);
+                sunsetTV.setText((sunsetTime.toString()));
+
+                TextView sunriseTV = findViewById(R.id.sunrise);
+                sunriseTV.setText(sunriseTime.toString());
+
+                //getting country code and name
+                TextView countryTV =findViewById(R.id.country);
+                countryTV.setText(sysInfo.getString("country"));
+
+                TextView cityTV = findViewById(R.id.city);
+                cityTV.setText(sysInfo.getString("name"));
+
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -87,6 +138,6 @@ public class MainActivity extends AppCompatActivity {
     public void show(View view) {
         EditText cityEditText = findViewById(R.id.cityEditText);
         DownloadTask task = new DownloadTask();
-        task.execute("http://api.openweathermap.org/data/2.5/weather?q="+ cityEditText.getText().toString() +"&appid=0c62dcd359d6281b470f01ab101e97e9&lang=en");
+        task.execute("http://api.openweathermap.org/data/2.5/weather?q=" + cityEditText.getText().toString() + "&units=metric&appid=0c62dcd359d6281b470f01ab101e97e9&lang=en");
     }
 }
