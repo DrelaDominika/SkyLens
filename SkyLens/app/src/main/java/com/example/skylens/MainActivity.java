@@ -110,12 +110,18 @@ public class MainActivity extends AppCompatActivity {
                 TextView sunriseTV = findViewById(R.id.sunrise);
                 sunriseTV.setText(sunriseTime.toString());
 
-                //getting country code and name
+                //getting date
+                String date =sunriseTime.toString().substring(0,10);
+                TextView dateTV = findViewById(R.id.dateTime);
+                dateTV.setText(date);
+
+                //getting country code
                 TextView countryTV =findViewById(R.id.country);
                 countryTV.setText(sysInfo.getString("country"));
 
+                //getting name
                 TextView cityTV = findViewById(R.id.city);
-                cityTV.setText(sysInfo.getString("name"));
+                cityTV.setText(jsonObject.getString("name"));
 
 
 
