@@ -93,23 +93,23 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="4dp"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="28dp"
+            android:alpha="0.9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_mapmode" />
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="44dp"
             android:text="Temperature"
             android:textSize="40sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.103"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateTime" />
     </androidx.constraintlayout.widget.ConstraintLayout>
