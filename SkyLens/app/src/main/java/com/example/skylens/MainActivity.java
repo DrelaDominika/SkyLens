@@ -108,10 +108,10 @@ public class MainActivity extends AppCompatActivity {
                 java.util.Date sunriseTime = new java.util.Date((long) sysInfo.getInt("sunrise") * 1000);
 
                 TextView sunsetTV = findViewById(R.id.sunset);
-                sunsetTV.setText((sunsetTime.toString()));
+                sunsetTV.setText((sunsetTime.toString().substring(11)));
 
                 TextView sunriseTV = findViewById(R.id.sunrise);
-                sunriseTV.setText(sunriseTime.toString());
+                sunriseTV.setText(sunriseTime.toString().substring(11));
 
                 //getting date
                 String date =sunriseTime.toString().substring(0,10);
