@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -122,6 +125,13 @@ public class MainActivity extends AppCompatActivity {
                 //getting name
                 TextView cityTV = findViewById(R.id.city);
                 cityTV.setText(jsonObject.getString("name"));
+
+                //find icon
+                ImageView imageView = findViewById(R.id.imageView);
+                JSONArray jsonArray = jsonObject.getJSONArray("weather");
+                JSONObject obj = jsonArray.getJSONObject(0);
+                String icon = obj.getString("icon");
+                Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
 
 
 
