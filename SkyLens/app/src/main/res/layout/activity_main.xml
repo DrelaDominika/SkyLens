@@ -71,7 +71,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="16dp"
-            android:text="City"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/country"
             app:layout_constraintTop_toTopOf="parent" />
@@ -106,6 +105,19 @@
             android:textSize="40sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateTime" />
+
+        <Button
+            android:id="@+id/bShowLocation"
+            android:layout_width="118dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="43dp"
+            android:alpha="0.9"
+            android:background="#7E015887"
+            android:text="show location"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
