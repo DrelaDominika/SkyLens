@@ -2,6 +2,7 @@ package com.example.skylens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+//import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,8 +25,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+    public String lat;
+    public String lon;
 
     public class DownloadTask extends AsyncTask<String, Void, String> {
+
 
         @Override
         protected String doInBackground(String... urls) {
@@ -81,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
                 TextView latTV = findViewById(R.id.latitude);
                 latTV.setText(coordInfo.getString("lat"));
 
+                //creating variables to pass values to maps activity
+                lat = coordInfo.getString("lat");
+                lon = coordInfo.getString("lon");
+
+
+
+
                 //getting humidity and temp and pressure
                 JSONObject mainInfo = jsonObject.getJSONObject("main");
 
@@ -131,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray jsonArray = jsonObject.getJSONArray("weather");
                 JSONObject obj = jsonArray.getJSONObject(0);
                 String icon = obj.getString("icon");
-                Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
+               // Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
 
 
 
@@ -148,6 +159,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+    }
+
+    public void openMap(View view){
+        Intent mapIntent =new Intent(this, MapsActivity.class);
+        mapIntent.putExtra("lat",lat);
+        mapIntent.putExtra("lon",lon);
+        startActivity(mapIntent);
 
     }
 

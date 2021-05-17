@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/gradient">
+    android:background="@drawable/gradient"
+    android:onClick="openMap"
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/cityEditText"
@@ -107,7 +108,7 @@
             app:layout_constraintTop_toBottomOf="@+id/dateTime" />
 
         <Button
-            android:id="@+id/bShowLocation"
+            android:id="@+id/bMapButton"
             android:layout_width="118dp"
             android:layout_height="43dp"
             android:layout_marginTop="9dp"
@@ -164,10 +165,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
             android:text="Latitude"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descriptionTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
 
         <TextView
             android:id="@+id/longitudeTextView"
@@ -176,10 +177,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
             android:text="Longitude"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/latitudeTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/latitudeTextView" />
 
         <TextView
             android:id="@+id/humidityTextView"
@@ -188,10 +189,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
             android:text="Humidity"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/longitudeTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/longitudeTextView" />
 
         <TextView
             android:id="@+id/sunriseTextView"
@@ -200,10 +201,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
             android:text="Sunrise"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/humidityTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/humidityTextView" />
 
         <TextView
             android:id="@+id/sunsetTextView"
@@ -212,10 +213,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
             android:text="Sunset"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sunriseTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/sunriseTextView" />
 
         <TextView
             android:id="@+id/pressureTextView"
@@ -224,10 +225,10 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:textSize="20sp"
             android:text="Pressure"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sunsetTextView"/>
+            app:layout_constraintTop_toBottomOf="@id/sunsetTextView" />
 
         <TextView
             android:id="@+id/windSpeedTextView"
