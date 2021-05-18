@@ -33,7 +33,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:alpha="0.9"
-        android:background="#7E015887"
+        android:background="#7E0072AF"
         android:onClick="show"
         android:text="Search weather"
         android:textColor="@color/white"
@@ -107,14 +107,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateTime" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bMapButton"
             android:layout_width="118dp"
             android:layout_height="43dp"
             android:layout_marginTop="9dp"
             android:layout_marginEnd="43dp"
             android:alpha="0.9"
-            android:background="#7E015887"
+            android:background="#7E0072AF"
             android:onClick="openMap"
             android:text="show location"
             android:textColor="@color/white"

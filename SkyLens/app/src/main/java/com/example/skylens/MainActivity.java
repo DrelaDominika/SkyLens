@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+//import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -119,10 +119,10 @@ public class MainActivity extends AppCompatActivity {
                 java.util.Date sunriseTime = new java.util.Date((long) sysInfo.getInt("sunrise") * 1000);
 
                 TextView sunsetTV = findViewById(R.id.sunset);
-                sunsetTV.setText((sunsetTime.toString().substring(11)));
+                sunsetTV.setText((sunsetTime.toString().substring(11, 23)));
 
                 TextView sunriseTV = findViewById(R.id.sunrise);
-                sunriseTV.setText(sunriseTime.toString().substring(11));
+                sunriseTV.setText(sunriseTime.toString().substring(11, 23));
 
                 //getting date
                 String date =sunriseTime.toString().substring(0,10);
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray jsonArray = jsonObject.getJSONArray("weather");
                 JSONObject obj = jsonArray.getJSONObject(0);
                 String icon = obj.getString("icon");
-                Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
+//                Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
 
 
 
