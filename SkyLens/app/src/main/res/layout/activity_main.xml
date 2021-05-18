@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    android:onClick="openMap"
+    android:onClick="show"
     tools:context=".MainActivity">
 
     <EditText
@@ -115,6 +115,7 @@
             android:layout_marginEnd="43dp"
             android:alpha="0.9"
             android:background="#7E015887"
+            android:onClick="openMap"
             android:text="show location"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
