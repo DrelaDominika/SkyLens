@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray jsonArray = jsonObject.getJSONArray("weather");
                 JSONObject obj = jsonArray.getJSONObject(0);
                 String icon = obj.getString("icon");
-               // Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
+                Picasso.get().load("http://openweathermap.org/img/wn/"+icon+"@2x.png").into(imageView);
 
 
 
